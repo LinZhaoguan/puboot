@@ -31,7 +31,7 @@ public class SysUser implements Serializable {
     /**
      * 昵称
      */
-    private Integer nickName;
+    private String nickName;
 
     /**
      * 性别 1-男 0-女

@@ -4,3 +4,5 @@ spring:
     url: jdbc:mysql://localhost:3306/puboot?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
     username: root
     password: 123456
+  redis:
+    database: 6

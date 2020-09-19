@@ -79,7 +79,7 @@ CREATE TABLE `pb_sys_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '账号',
   `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '密码',
-  `nick_name` int(11) DEFAULT NULL COMMENT '昵称',
+  `nick_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL COMMENT '昵称',
   `sex` tinyint(1) DEFAULT NULL COMMENT '性别 1-男 0-女',
   `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   `birthday` datetime DEFAULT NULL COMMENT '生日',

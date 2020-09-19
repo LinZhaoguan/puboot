@@ -4,15 +4,19 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @Configuration
 @AllArgsConstructor
-public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableRedisHttpSession
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
 
@@ -24,21 +28,31 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
+
+        // 表单验证，默认开启CSRF拦截
         http
                 .formLogin()
-                .loginPage("/login.html")
-                .failureUrl("/login-error.html")
+                .loginPage("/login")
+                .defaultSuccessUrl("/admin")
+                .failureUrl("/login-error")
+
                 .and()
                 .logout()
-                .logoutSuccessUrl("/index.html")
+
                 .and()
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**").hasRole("USER")
-                .antMatchers("/shared/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/admin/**")
+                .authenticated()
+
                 .and()
                 .exceptionHandling()
-                .accessDeniedPage("/403.html");
+                .accessDeniedPage("/error/403");
+
+        // 允许iframe 嵌套
+        http
+                .headers()
+                .frameOptions()
+                .disable();
 
     }
 

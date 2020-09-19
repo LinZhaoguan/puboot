@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>Thymeleafexamples - Spring Security</title>
     <meta charset="utf-8" />
@@ -18,9 +18,7 @@
 <h2>Private pages</h2>
 <p>This is a public page, but you can navigate to protected pages to trigger authentication.</p>
 <ul>
-    <li>Go to <a href="admin/index.html" th:href="@{/admin/index.html}">administration zone</a> (only admins)</li>
-    <li>Go to <a href="user/index.html" th:href="@{/user/index.html}">user zone</a> (only users)</li>
-    <li>Go to <a href="user/index.html" th:href="@{/shared/index.html}">shared zone</a> (both users and admins)</li>
+    <li>Go to <a href="admin/index.html" th:href="@{/admin/index}">administration zone</a> (only admins)</li>
 </ul>
 <h2>Exception handling</h2>
 <ul>
