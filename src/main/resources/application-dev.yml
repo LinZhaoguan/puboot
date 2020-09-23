@@ -6,3 +6,8 @@ spring:
     password: 123456
   redis:
     database: 6
+  thymeleaf:
+    cache: false
+logging:
+  level:
+    root: info

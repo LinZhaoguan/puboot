@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>首页 - 光年(Light Year Admin V4)后台管理系统模板</title>
+    <link rel="icon" href="favicon.ico" type="image/ico">
+    <meta name="keywords" content="LightYear,LightYearAdmin,光年,后台模板,后台管理系统,光年HTML模板">
+    <meta name="description" content="Light Year Admin V4是一个后台管理系统的HTML模板，基于Bootstrap v4.4.1。">
+    <meta name="author" content="yinqi">
+    <link rel="stylesheet" th:href="@{/css/admin/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/materialdesignicons.min.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/style.min.css}">
+</head>
+
+<body>
+<div class="row no-gutters bg-white vh-100">
+    <div class="col-md-6 col-lg-7 col-xl-8 d-none d-md-block"
+         th:style="'background-image: url(' + @{/images/admin/login-bg-1.jpg} + ');'"
+         style="background-size: cover;">
+
+        <div class="d-flex vh-100">
+            <div class="p-5 align-self-end">
+                <img th:src="@{/images/admin/logo.png}" alt="...">
+                <br><br><br>
+                <p class="text-white">Light Year Admin V4是一个后台管理系统的HTML模板，基于Bootstrap v4.4.1。</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6 col-lg-5 col-xl-4 align-self-center">
+        <div class="p-5">
+            <div class="text-center">
+                <a href="index.html"> <img alt="light year admin" th:src="@{/images/admin/logo-sidebar.png}"> </a>
+            </div>
+            <p class="text-center text-muted"><small>请使用您的账号登录系统</small></p>
+            <div th:if="${loginError}" class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>登录失败:</strong> 用户名或密码错误
+            </div>
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="请输入您的用户名">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="请输入您的密码">
+                </div>
+
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="remember-me" id="remember-me">
+                        <label class="custom-control-label not-user-select" for="remember-me">记住我</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-block btn-primary" type="submit">立即登录</button>
+                </div>
+            </form>
+            <p class="text-center text-muted mt-3">Copyright © 2020 <a href="http://lyear.itshubao.com">IT书包</a>. All
+                right reserved</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/js/admin/jquery.min.js}"></script>
+</body>
+</html>

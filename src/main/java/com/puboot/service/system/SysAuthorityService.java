@@ -15,6 +15,7 @@ public interface SysAuthorityService extends IService<SysAuthority> {
 
     /**
      * 根据用户账号获取对应的权限集合
+     *
      * @param username
      * @return
      */

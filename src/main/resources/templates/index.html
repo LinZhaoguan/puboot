@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <title>Thymeleafexamples - Spring Security</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/main.css" th:href="@{/css/main.css}" />
+    <title>CMS首页</title>
+    <meta charset="utf-8"/>
 </head>
 <body>
 <div th:fragment="logout" class="logout"
@@ -13,16 +12,10 @@
     <!--/* When using CSRF this needs to be a POST */-->
     <form th:action="@{/logout}" method="post" style="display:inline"><input type="submit" value="Logout"/></form>
 </div>
-<h1>Thymeleafexamples - Spring Security</h1>
+<h1>Thymeleafexamples - Spring Security - CMS INDEX</h1>
 <p>This is a demo of Thymeleaf and Spring-Security integration.</p>
 <h2>Private pages</h2>
 <p>This is a public page, but you can navigate to protected pages to trigger authentication.</p>
-<ul>
-    <li>Go to <a href="admin/index.html" th:href="@{/admin/index}">administration zone</a> (only admins)</li>
-</ul>
-<h2>Exception handling</h2>
-<ul>
-    <li>You can <a href="error.html" th:href="@{/simulateError.html}">simulate an exception</a> to see custom ErrorPage.</li>
-</ul>
+
 </body>
 </html>

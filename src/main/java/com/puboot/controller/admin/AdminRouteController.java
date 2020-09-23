@@ -18,7 +18,7 @@ public class AdminRouteController {
      */
     @RequestMapping("/login")
     public String login() {
-        return "login";
+        return "admin/login";
     }
 
     /**
@@ -27,16 +27,34 @@ public class AdminRouteController {
     @RequestMapping("/login-error")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
-        return "login";
+        return "admin/login";
     }
 
     /**
-     * Error page.
+     * 后台外部框架
      */
     @RequestMapping("/admin")
     public String index() {
         return "admin/index";
     }
+
+    /**
+     * 后台主页
+     */
+    @RequestMapping("/admin/dashboard")
+    public String dashboard() {
+        return "admin/dashboard/dashboard";
+    }
+
+
+    /**
+     * 权限管理-用户列表
+     */
+    @RequestMapping("/admin/user")
+    public String user() {
+        return "admin/system/user";
+    }
+
 
     /**
      * Error page.
