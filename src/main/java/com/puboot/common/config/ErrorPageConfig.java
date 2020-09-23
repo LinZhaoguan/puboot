@@ -22,6 +22,6 @@ public class ErrorPageConfig implements ErrorPageRegistrar {
         Stream
                 .of(HttpStatus.FORBIDDEN, HttpStatus.NOT_FOUND, HttpStatus.INTERNAL_SERVER_ERROR)
                 .map(httpStatus -> new ErrorPage(httpStatus, "/error/" + httpStatus.value()))
-                .forEach(errorPage -> registry.addErrorPages(errorPage));
+                .forEach(registry::addErrorPages);
     }
 }
